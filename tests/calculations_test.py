@@ -72,7 +72,7 @@ def test_get_nth_fibonacci_ten():
     # Assert
     assert result == 55
 
-class unittest(unittest.Testcase):
+class unittest(unittest.TestCase):
 
     def test_get_nth_fibonacci_negative(self):
         """Test with a negative number to raise ValueError."""
