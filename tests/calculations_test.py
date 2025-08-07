@@ -1,7 +1,6 @@
 # System Modules
 import sys
 import os
-import unittest
 
 # Installed Modules
 # None
@@ -86,3 +85,54 @@ def test_get_nth_fibonacci_negative(self):
    # Act & Assert
    with self.assertRaises(ValueError):
       get_nth_fibonacci(n)
+
+
+def test_area_of_circle_large_radius(self):
+    """Test with a very large radius."""
+    radius = 1e6
+    result = area_of_circle(radius)
+    expected = 3.14159 * (radius ** 2)
+    self.assertAlmostEqual(result, expected, places=5)
+
+def test_area_of_circle_small_positive_radius(self):
+    """Test with a very small positive radius."""
+    radius = 1e-6
+    result = area_of_circle(radius)
+    expected = 3.14159 * (radius ** 2)
+    self.assertAlmostEqual(result, expected, places=5)
+
+def test_area_of_circle_non_numeric_input(self):
+    """Test with a non-numeric input to raise TypeError."""
+    with self.assertRaises(TypeError):
+        area_of_circle("string")
+    with self.assertRaises(TypeError):
+        area_of_circle(None)
+
+def test_get_nth_fibonacci_two(self):
+    """Test with n=2."""
+    n = 2
+    result = get_nth_fibonacci(n)
+    self.assertEqual(result, 1)
+
+def test_get_nth_fibonacci_three(self):
+    """Test with n=3."""
+    n = 3
+    result = get_nth_fibonacci(n)
+    self.assertEqual(result, 2)
+
+def test_get_nth_fibonacci_large_n(self):
+    """Test with a very large n."""
+    n = 50
+    result = get_nth_fibonacci(n)
+    self.assertEqual(result, 12586269025)  # Fibonacci(50)
+
+def test_get_nth_fibonacci_non_integer_input(self):
+    """Test with a non-integer input to raise TypeError."""
+    with self.assertRaises(TypeError):
+        get_nth_fibonacci(3.5)
+    with self.assertRaises(TypeError):
+        get_nth_fibonacci("string")
+    with self.assertRaises(TypeError):
+        get_nth_fibonacci(None)
+
+
