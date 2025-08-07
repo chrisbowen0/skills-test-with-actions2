@@ -79,9 +79,10 @@ def test_get_nth_fibonacci_negative():
    n = -1
 
    # Act & Assert
-   result = get_nth_fibonacci(n)
+   with n.assertRaises(ValueError):
+        get_nth_fibonacci(n)
 
-   assert result == -82
+    
 
 def test_area_of_circle_negative_radius(self):
    """Test with a negative radius to raise ValueError."""
